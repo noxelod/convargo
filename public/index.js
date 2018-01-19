@@ -156,11 +156,26 @@ function Price()
 		{
 			if (deliveries[i]['truckerId'] = truckers[j]['id'])
 			{
+				var discount = Discount(deliveries[i]['volume']);
 				deliveries[i]['price'] = deliveries[i]['distance'] * truckers[j]['pricePerKm'] + deliveries[i]['volume'] * truckers[j]['pricePerVolume']; 
+				deliveries[i]['price'] = deliveries[i]['price'] * discount;
 			}
 		}
 	}
-	
+}
+
+function Discount(volume)
+{
+	if ( volume > 25)
+		return (0.5);
+	else
+		if ( volume > 10)
+			return (0.7);
+		else 
+			if (volume > 5)
+				return(0.9);
+			else
+				return(1);
 }
 
 
