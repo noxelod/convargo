@@ -164,6 +164,17 @@ function Price()
 	}
 }
 
+function Comission()
+{
+	for ( var i = 0; i < 3; i++)
+	{
+		deliveries[i]['commission']['insurance'] = deliveries[i]['price'] * 0.3 * 0.5;
+		deliveries[i]['commission']['treasury'] = (deliveries[i]['distance'] / 500);
+		deliveries[i]['commission']['convargo'] = deliveries[i]['price'] * 0.3 - deliveries[i]['commission']['treasury'] - deliveries[i]['commission']['insurance'];
+		
+	}
+}
+
 function Discount(volume)
 {
 	if ( volume > 25)
@@ -180,6 +191,7 @@ function Discount(volume)
 
 
 Price();
+Comission();
 console.log(truckers);
 console.log(deliveries);
 console.log(actors);
