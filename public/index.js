@@ -20,6 +20,9 @@ const truckers = [{
   'pricePerVolume': 10
 }];
 
+
+
+
 //list of current shippings
 //useful for ALL steps
 //The `price` is updated from step 1 and 2
@@ -145,6 +148,23 @@ const actors = [{
   }]
 }];
 
+function Price()
+{
+	for ( var i = 0; i < 3; i++)
+	{
+		for (var j = 0; j < 3; j++)
+		{
+			if (deliveries[i]['truckerId'] = truckers[j]['id'])
+			{
+				deliveries[i]['price'] = deliveries[i]['distance'] * truckers[j]['pricePerKm'] + deliveries[i]['volume'] * truckers[j]['pricePerVolume']; 
+			}
+		}
+	}
+	
+}
+
+
+Price();
 console.log(truckers);
 console.log(deliveries);
 console.log(actors);
